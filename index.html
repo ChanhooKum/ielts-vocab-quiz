@@ -96,6 +96,52 @@
   }
   .all-btn:hover{ filter:brightness(1.05); }
 
+  /* ---- Mode toggle ---- */
+  .mode-toggle{
+    display:flex;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .mode-toggle button{
+    flex:1;
+    padding:10px 12px;
+    border-radius:12px;
+    border:2px solid #ffe0ea;
+    background:#fff;
+    color:#a89aa8;
+    font-weight:700;
+    font-size:.9rem;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .mode-toggle button.active{
+    border-color:transparent;
+    background: linear-gradient(90deg,var(--pink-3),var(--purple));
+    color:#fff;
+  }
+
+  /* ---- Study (뜻 보기) ---- */
+  .study-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:16px;
+  }
+  .study-header h2{ font-size:1.05rem; margin:0; }
+  .study-list{ display:flex; flex-direction:column; gap:10px; max-height:70vh; overflow-y:auto; }
+  .study-item{
+    padding:14px 16px;
+    border-radius:14px;
+    background:#fff7f9;
+    border:1px solid #ffe0ea;
+  }
+  .study-item .w-row{ display:flex; align-items:baseline; gap:8px; margin-bottom:4px; }
+  .study-item .w-word{ font-size:1.05rem; font-weight:800; color:var(--pink-deep); }
+  .study-item .w-pos{ font-size:.75rem; color:#a89aa8; }
+  .study-item .w-meaning{ font-size:.9rem; color:var(--ink); margin-bottom:6px; }
+  .study-item .w-sentence{ font-size:.88rem; color:#8a7d90; line-height:1.5; }
+  .study-item .w-sentence mark{ background:#ffe0ea; color:var(--pink-deep); font-weight:700; border-radius:4px; padding:0 3px; }
+
   /* ---- Quiz ---- */
   .progress-wrap{
     display:flex;
@@ -140,6 +186,21 @@
     font-family:inherit;
   }
   .answer-input:focus{ outline:none; border-color:var(--pink-3); }
+
+  .hint-row{ display:flex; align-items:center; gap:10px; margin-top:10px; }
+  .hint-btn{
+    padding:8px 12px;
+    border-radius:10px;
+    border:2px solid #ffe0ea;
+    background:#fff;
+    color:var(--pink-deep);
+    font-size:.82rem;
+    font-weight:700;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .hint-btn:disabled{ opacity:.5; cursor:not-allowed; }
+  .hint-text{ font-size:.9rem; font-weight:700; letter-spacing:1px; color:var(--purple); }
 
   .mc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   @media (max-width:480px){ .mc-grid{grid-template-columns:1fr;} }
@@ -250,10 +311,25 @@
   <!-- Category select screen -->
   <section id="screen-select" class="screen active">
     <div class="card">
-      <p style="margin:0 0 4px; font-weight:700;">카테고리를 골라서 풀어보세요</p>
-      <p style="margin:0; font-size:.85rem; color:#a89aa8;">각 카테고리 10문제 · 빈칸/객관식 랜덤 출제</p>
+      <div class="mode-toggle">
+        <button id="modeQuizBtn" class="active">🧠 퀴즈로 풀기</button>
+        <button id="modeStudyBtn">📖 뜻 보기 학습</button>
+      </div>
+      <p style="margin:0 0 4px; font-weight:700;" id="selectTitle">카테고리를 골라서 풀어보세요</p>
+      <p style="margin:0; font-size:.85rem; color:#a89aa8;" id="selectSub">각 카테고리 10문제 · 빈칸/객관식 랜덤 출제</p>
       <div class="cat-grid" id="catGrid"></div>
       <button class="all-btn" id="allBtn">전체 100문제 도전하기 💪</button>
+    </div>
+  </section>
+
+  <!-- Study (뜻 보기) screen -->
+  <section id="screen-study" class="screen">
+    <div class="card">
+      <div class="study-header">
+        <h2 id="studyTitle">단어 목록</h2>
+        <button class="btn btn-ghost" id="studyBackBtn">← 뒤로</button>
+      </div>
+      <div class="study-list" id="studyList"></div>
     </div>
   </section>
 
@@ -451,9 +527,10 @@ let answered = false;
 const screenSelect = document.getElementById("screen-select");
 const screenQuiz = document.getElementById("screen-quiz");
 const screenResult = document.getElementById("screen-result");
+const screenStudy = document.getElementById("screen-study");
 
 function showScreen(el){
-  [screenSelect, screenQuiz, screenResult].forEach(s => s.classList.remove("active"));
+  [screenSelect, screenQuiz, screenResult, screenStudy].forEach(s => s.classList.remove("active"));
   el.classList.add("active");
 }
 
@@ -467,6 +544,8 @@ function shuffle(arr){
 }
 
 /* ---------------- Category select screen ---------------- */
+let appMode = "quiz"; // "quiz" | "study"
+
 function renderCategoryGrid(){
   const grid = document.getElementById("catGrid");
   grid.innerHTML = "";
@@ -475,14 +554,67 @@ function renderCategoryGrid(){
     const best = localStorage.getItem("ielts100_best_cat_"+catId);
     const btn = document.createElement("button");
     btn.className = "cat-btn";
+    const badge = appMode === "quiz"
+      ? `${count}문제${best ? " · 최고 "+best+"점" : ""}`
+      : `${count}개 단어 보기`;
     btn.innerHTML = `<div class="num">CATEGORY ${catId}</div>
       <div class="name">${CATEGORIES[catId]}</div>
-      <div class="best">${count}문제${best ? " · 최고 "+best+"점" : ""}</div>`;
-    btn.onclick = () => startQuiz(WORDS.filter(w => w.cat == catId), catId);
+      <div class="best">${badge}</div>`;
+    btn.onclick = () => {
+      const words = WORDS.filter(w => w.cat == catId);
+      if(appMode === "quiz") startQuiz(words, catId);
+      else startStudy(words, `CATEGORY ${catId} · ${CATEGORIES[catId]}`);
+    };
     grid.appendChild(btn);
   }
 }
-document.getElementById("allBtn").onclick = () => startQuiz(WORDS, "all");
+
+function updateModeUI(){
+  document.getElementById("modeQuizBtn").classList.toggle("active", appMode === "quiz");
+  document.getElementById("modeStudyBtn").classList.toggle("active", appMode === "study");
+  document.getElementById("selectTitle").textContent = appMode === "quiz"
+    ? "카테고리를 골라서 풀어보세요"
+    : "카테고리를 골라서 뜻과 예문을 살펴보세요";
+  document.getElementById("selectSub").textContent = appMode === "quiz"
+    ? "각 카테고리 10문제 · 빈칸/객관식 랜덤 출제"
+    : "퀴즈 없이 단어 뜻과 예문만 훑어보는 모드예요";
+  document.getElementById("allBtn").textContent = appMode === "quiz"
+    ? "전체 100문제 도전하기 💪"
+    : "전체 100개 단어 보기 📖";
+  renderCategoryGrid();
+}
+
+document.getElementById("modeQuizBtn").onclick = () => { appMode = "quiz"; updateModeUI(); };
+document.getElementById("modeStudyBtn").onclick = () => { appMode = "study"; updateModeUI(); };
+
+document.getElementById("allBtn").onclick = () => {
+  if(appMode === "quiz") startQuiz(WORDS, "all");
+  else startStudy(WORDS, "전체 100개 단어");
+};
+
+/* ---------------- Study (뜻 보기) screen ---------------- */
+function startStudy(words, title){
+  document.getElementById("studyTitle").textContent = title;
+  const list = document.getElementById("studyList");
+  list.innerHTML = "";
+  words.forEach(w => {
+    const filled = w.sentence.replace("___", `<mark>${w.word}</mark>`);
+    const item = document.createElement("div");
+    item.className = "study-item";
+    item.innerHTML = `
+      <div class="w-row">
+        <span class="w-word">${w.word}</span>
+        <span class="w-pos">(${w.pos})</span>
+      </div>
+      <div class="w-meaning">${w.meaning}</div>
+      <div class="w-sentence">${filled}</div>`;
+    list.appendChild(item);
+  });
+  showScreen(screenStudy);
+}
+document.getElementById("studyBackBtn").onclick = () => {
+  showScreen(screenSelect);
+};
 
 /* ---------------- Quiz logic ---------------- */
 let currentCatKey = null;
@@ -529,12 +661,24 @@ function renderQuestion(){
       <div class="answer-input-row">
         <input type="text" class="answer-input" id="fillInput" placeholder="빈칸에 들어갈 단어를 입력하세요" autocomplete="off">
         <button class="btn btn-primary" id="submitFill">확인</button>
+      </div>
+      <div class="hint-row">
+        <button class="hint-btn" id="hintBtn" type="button">💡 힌트 보기</button>
+        <span class="hint-text" id="hintText"></span>
       </div>`;
     const input = document.getElementById("fillInput");
     input.focus();
     const submit = () => checkFillAnswer(w, input.value);
     document.getElementById("submitFill").onclick = submit;
     input.addEventListener("keydown", e => { if(e.key === "Enter") submit(); });
+
+    let hintLevel = 0;
+    const maxHintLevel = Math.min(2, w.word.length - 1);
+    document.getElementById("hintBtn").onclick = () => {
+      hintLevel = Math.min(hintLevel + 1, maxHintLevel);
+      document.getElementById("hintText").textContent = `힌트: ${w.word.slice(0, hintLevel)}...`;
+      if(hintLevel >= maxHintLevel) document.getElementById("hintBtn").disabled = true;
+    };
   } else {
     const options = shuffle([w.word, ...pickDistractors(w)]);
     const mcGrid = document.createElement("div");
