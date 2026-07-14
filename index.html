@@ -651,7 +651,7 @@ function renderQuestion(){
   document.getElementById("qHint").textContent = `힌트: ${w.meaning} (${w.pos})`;
   document.getElementById("qSentence").innerHTML = w.sentence.replace("___", '<span class="blank">______</span>');
 
-  currentType = w.phrase ? "mc" : (Math.random() < 0.5 ? "fill" : "mc");
+  currentType = w.phrase ? "mc" : (Math.random() < 0.4 ? "fill" : "mc");
 
   const area = document.getElementById("answerArea");
   area.innerHTML = "";
