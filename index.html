@@ -205,6 +205,10 @@
   .mc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   @media (max-width:480px){ .mc-grid{grid-template-columns:1fr;} }
   .mc-opt{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:3px;
     padding:12px 14px;
     border-radius:12px;
     border:2px solid #ffe0ea;
@@ -217,6 +221,8 @@
   .mc-opt:hover{ border-color:var(--pink-3); }
   .mc-opt.correct{ border-color:var(--good); background:#eafff4; }
   .mc-opt.wrong{ border-color:var(--bad); background:#ffeef1; }
+  .mc-opt-word{ font-weight:600; }
+  .mc-opt-meaning{ font-size:.78rem; color:#8a7d90; }
 
   .btn{
     padding:12px 18px;
@@ -1486,7 +1492,8 @@ function renderQuestion(){
     options.forEach(opt => {
       const b = document.createElement("button");
       b.className = "mc-opt";
-      b.textContent = opt;
+      b.dataset.word = opt;
+      b.innerHTML = `<span class="mc-opt-word">${opt}</span><span class="mc-opt-meaning"></span>`;
       b.onclick = () => checkMcAnswer(w, opt, b, mcGrid);
       mcGrid.appendChild(b);
     });
@@ -1513,7 +1520,11 @@ function checkMcAnswer(w, chosen, btnEl, mcGrid){
   const correct = normalize(chosen) === normalize(w.word);
   [...mcGrid.children].forEach(b => {
     b.disabled = true;
-    if(normalize(b.textContent) === normalize(w.word)) b.classList.add("correct");
+    const optWord = b.dataset.word;
+    const entry = WORDS.find(x => normalize(x.word) === normalize(optWord));
+    const meaningSpan = b.querySelector(".mc-opt-meaning");
+    if(entry && meaningSpan) meaningSpan.textContent = `— ${entry.meaning}`;
+    if(normalize(optWord) === normalize(w.word)) b.classList.add("correct");
     else if(b === btnEl) b.classList.add("wrong");
   });
   applyFeedback(w, correct);
