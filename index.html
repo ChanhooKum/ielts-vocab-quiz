@@ -401,7 +401,22 @@ const CATEGORIES = {
   7: "인간 행동·심리·교육",
   8: "양적 데이터 및 도표 분석 (Task 1)",
   9: "논리 구조 연결어",
-  10: "고득점 만능 동사"
+  10: "고득점 만능 동사",
+  11: "환경과 기후",
+  12: "교육과 학습",
+  13: "기술과 미디어",
+  14: "건강과 의료",
+  15: "범죄와 법",
+  16: "경제와 노동",
+  17: "가족과 사회",
+  18: "정부와 정책",
+  19: "도시 개발과 주거",
+  20: "교통과 관광",
+  21: "문화와 예술",
+  22: "과학과 혁신",
+  23: "국제 이슈와 세계화",
+  24: "식생활과 라이프스타일",
+  30: "리딩 지문 어휘 · The Globemakers"
 };
 
 const WORDS = [
@@ -513,7 +528,220 @@ const WORDS = [
   {id:97, word:"deviate", pos:"동", meaning:"일탈하다, 벗어나다", cat:10, sentence:"Employees who ___ from the company's core values will face consequences."},
   {id:98, word:"exemplify", pos:"동", meaning:"전형적인 예가 되다, 예증하다", cat:10, sentence:"This case perfectly ___ the challenges faced by small businesses."},
   {id:99, word:"facilitate", pos:"동", meaning:"용이하게 하다, 촉진하다", cat:10, sentence:"Technology can ___ communication between people across the world."},
-  {id:100, word:"accentuate", pos:"동", meaning:"강조하다, 두드러지게 하다", cat:10, sentence:"The report's heavy use of statistics helps ___ the scale of the problem."}
+  {id:100, word:"accentuate", pos:"동", meaning:"강조하다, 두드러지게 하다", cat:10, sentence:"The report's heavy use of statistics helps ___ the scale of the problem."},
+
+  {id:101, word:"emission", pos:"명", meaning:"배출(물), 배기가스", cat:11, sentence:"Factories are required to reduce harmful ___s into the atmosphere."},
+  {id:102, word:"greenhouse gas", pos:"명", meaning:"온실가스", cat:11, sentence:"Carbon dioxide is the most abundant ___ produced by human activity.", phrase:true},
+  {id:103, word:"carbon footprint", pos:"명", meaning:"탄소 발자국", cat:11, sentence:"Flying less can significantly reduce an individual's ___.", phrase:true},
+  {id:104, word:"fossil fuel", pos:"명", meaning:"화석 연료", cat:11, sentence:"Many countries still rely heavily on ___ for electricity generation.", phrase:true},
+  {id:105, word:"renewable", pos:"형", meaning:"재생 가능한", cat:11, sentence:"Investment in ___ energy sources has surged in recent years."},
+  {id:106, word:"deforestation", pos:"명", meaning:"삼림 벌채", cat:11, sentence:"___ in the Amazon has accelerated over the past decade."},
+  {id:107, word:"afforestation", pos:"명", meaning:"조림, 식목", cat:11, sentence:"The government launched an ___ program to restore degraded land."},
+  {id:108, word:"pollutant", pos:"명", meaning:"오염 물질", cat:11, sentence:"Vehicle exhaust remains a major ___ in urban areas."},
+  {id:109, word:"contaminate", pos:"동", meaning:"오염시키다", cat:11, sentence:"Industrial waste can ___ nearby rivers and groundwater."},
+  {id:110, word:"ecosystem", pos:"명", meaning:"생태계", cat:11, sentence:"Coral reefs support one of the most diverse ___s on Earth."},
+  {id:111, word:"habitat", pos:"명", meaning:"서식지", cat:11, sentence:"Logging has destroyed much of the species' natural ___."},
+  {id:112, word:"extinction", pos:"명", meaning:"멸종", cat:11, sentence:"Poaching has driven several species to the brink of ___."},
+  {id:113, word:"endangered", pos:"형", meaning:"멸종 위기에 처한", cat:11, sentence:"Conservationists are working to protect ___ species from poachers."},
+  {id:114, word:"conservation", pos:"명", meaning:"보존, 보호", cat:11, sentence:"Wildlife ___ requires cooperation between governments and local communities."},
+  {id:115, word:"degradation", pos:"명", meaning:"황폐화, 저하", cat:11, sentence:"Overgrazing has led to severe land ___ in the region."},
+  {id:116, word:"erosion", pos:"명", meaning:"침식", cat:11, sentence:"Coastal ___ threatens homes built too close to the shoreline."},
+  {id:117, word:"drought", pos:"명", meaning:"가뭄", cat:11, sentence:"Prolonged ___ has devastated crops across the region."},
+  {id:118, word:"desertification", pos:"명", meaning:"사막화", cat:11, sentence:"Overuse of land for farming can accelerate ___."},
+  {id:119, word:"ecological", pos:"형", meaning:"생태학적인", cat:11, sentence:"The dam's construction raised serious ___ concerns."},
+  {id:120, word:"recycle", pos:"동", meaning:"재활용하다", cat:11, sentence:"Households are encouraged to ___ paper, glass, and plastic separately."},
+  {id:121, word:"landfill", pos:"명", meaning:"매립지", cat:11, sentence:"Much of the city's waste still ends up in ___s."},
+  {id:122, word:"toxic", pos:"형", meaning:"유독한", cat:11, sentence:"The factory was found to be releasing ___ chemicals into the air."},
+  {id:123, word:"hazardous", pos:"형", meaning:"위험한, 유해한", cat:11, sentence:"___ waste must be disposed of according to strict regulations."},
+  {id:124, word:"ozone layer", pos:"명", meaning:"오존층", cat:11, sentence:"Certain chemicals were banned after being linked to damage to the ___.", phrase:true},
+  {id:125, word:"glacier", pos:"명", meaning:"빙하", cat:11, sentence:"Scientists warn that many ___s could disappear within decades."},
+  {id:126, word:"wildfire", pos:"명", meaning:"산불", cat:11, sentence:"Rising temperatures have made ___s more frequent and severe."},
+  {id:127, word:"biodegradable", pos:"형", meaning:"생분해성의", cat:11, sentence:"___ packaging breaks down naturally without harming the environment."},
+  {id:128, word:"pesticide", pos:"명", meaning:"살충제", cat:11, sentence:"Excessive use of ___s can harm beneficial insects such as bees."},
+  {id:129, word:"fertilizer", pos:"명", meaning:"비료", cat:11, sentence:"Chemical ___s can run off into rivers and cause algae blooms."},
+  {id:130, word:"irrigation", pos:"명", meaning:"관개", cat:11, sentence:"Efficient ___ systems can reduce water waste in agriculture."},
+  {id:131, word:"dwindle", pos:"동", meaning:"줄어들다", cat:11, sentence:"Fish stocks have begun to ___ due to overfishing."},
+  {id:132, word:"solar", pos:"형", meaning:"태양의", cat:11, sentence:"___ panels have become significantly cheaper over the last decade."},
+  {id:133, word:"turbine", pos:"명", meaning:"터빈", cat:11, sentence:"Wind ___s generate electricity without producing carbon emissions."},
+  {id:134, word:"hydroelectric", pos:"형", meaning:"수력 발전의", cat:11, sentence:"___ dams provide a large share of the country's electricity."},
+  {id:135, word:"carbon-neutral", pos:"형", meaning:"탄소 중립의", cat:11, sentence:"The company pledged to become ___ by 2030."},
+  {id:136, word:"greenhouse effect", pos:"명", meaning:"온실효과", cat:11, sentence:"Rising carbon dioxide levels intensify the ___.", phrase:true},
+  {id:137, word:"climate change", pos:"명", meaning:"기후 변화", cat:11, sentence:"___ is expected to bring more extreme weather events.", phrase:true},
+  {id:138, word:"global warming", pos:"명", meaning:"지구 온난화", cat:11, sentence:"___ has caused average temperatures to rise steadily.", phrase:true},
+  {id:139, word:"acid rain", pos:"명", meaning:"산성비", cat:11, sentence:"Emissions from factories can lead to ___ that damages forests.", phrase:true},
+  {id:140, word:"smog", pos:"명", meaning:"스모그", cat:11, sentence:"Thick ___ blanketed the city for several days."},
+  {id:141, word:"particulate", pos:"형/명", meaning:"미세먼지, 입자상 물질", cat:11, sentence:"Fine ___ matter can penetrate deep into the lungs."},
+  {id:142, word:"eco-friendly", pos:"형", meaning:"친환경적인", cat:11, sentence:"Consumers are increasingly choosing ___ products."},
+  {id:143, word:"offset", pos:"동", meaning:"상쇄하다", cat:11, sentence:"Planting trees can help ___ carbon emissions."},
+  {id:144, word:"overfishing", pos:"명", meaning:"남획", cat:11, sentence:"___ has led to a sharp decline in global fish populations."},
+  {id:145, word:"poaching", pos:"명", meaning:"밀렵", cat:11, sentence:"___ remains one of the greatest threats to endangered wildlife."},
+  {id:146, word:"reforestation", pos:"명", meaning:"재조림", cat:11, sentence:"___ projects aim to restore forests lost to logging."},
+  {id:147, word:"species", pos:"명", meaning:"종", cat:11, sentence:"Thousands of ___ face extinction due to habitat loss."},
+  {id:148, word:"mitigation", pos:"명", meaning:"완화(조치)", cat:11, sentence:"Flood ___ measures include building higher levees."},
+  {id:149, word:"adaptation", pos:"명", meaning:"적응", cat:11, sentence:"Farmers are adopting new ___ strategies to cope with unpredictable weather."},
+  {id:150, word:"resilience", pos:"명", meaning:"회복력", cat:11, sentence:"Coastal communities need greater ___ to withstand rising sea levels."},
+  {id:151, word:"vulnerability", pos:"명", meaning:"취약성", cat:11, sentence:"Low-lying islands face particular ___ to rising sea levels."},
+  {id:152, word:"catastrophe", pos:"명", meaning:"대재앙", cat:11, sentence:"Scientists warn of an environmental ___ if emissions continue unchecked."},
+  {id:153, word:"conservationist", pos:"명", meaning:"환경보호 운동가", cat:11, sentence:"___s have campaigned for decades to protect the rainforest."},
+  {id:154, word:"sanctuary", pos:"명", meaning:"보호구역", cat:11, sentence:"The area was designated a wildlife ___ in 1995."},
+  {id:155, word:"runoff", pos:"명", meaning:"(빗물 등의) 유출수", cat:11, sentence:"Agricultural ___ is a leading cause of water pollution."},
+  {id:156, word:"scarcity", pos:"명", meaning:"부족, 희소성", cat:11, sentence:"Water ___ is becoming a pressing issue in arid regions."},
+  {id:157, word:"regenerate", pos:"동", meaning:"재생하다", cat:11, sentence:"Damaged ecosystems can slowly ___ if left undisturbed."},
+  {id:158, word:"sediment", pos:"명", meaning:"퇴적물", cat:11, sentence:"Excess ___ can clog rivers and harm aquatic life."},
+  {id:159, word:"emit", pos:"동", meaning:"배출하다", cat:11, sentence:"Factories ___ large amounts of carbon dioxide every year."},
+  {id:160, word:"combustion", pos:"명", meaning:"연소", cat:11, sentence:"The ___ of fossil fuels releases carbon dioxide into the atmosphere."},
+  {id:161, word:"atmosphere", pos:"명", meaning:"대기", cat:11, sentence:"Greenhouse gases trap heat within the Earth's ___."},
+  {id:162, word:"permafrost", pos:"명", meaning:"영구 동토층", cat:11, sentence:"Thawing ___ releases methane, a potent greenhouse gas."},
+  {id:163, word:"methane", pos:"명", meaning:"메탄", cat:11, sentence:"Livestock farming is a significant source of ___ emissions."},
+  {id:164, word:"sequester", pos:"동", meaning:"(탄소를) 격리 저장하다", cat:11, sentence:"Forests ___ vast amounts of carbon dioxide from the atmosphere."},
+  {id:165, word:"overexploitation", pos:"명", meaning:"과잉 개발, 남용", cat:11, sentence:"___ of natural resources threatens long-term ecological balance."},
+  {id:166, word:"green belt", pos:"명", meaning:"그린벨트", cat:11, sentence:"The city established a ___ to prevent urban sprawl.", phrase:true},
+  {id:167, word:"carbon tax", pos:"명", meaning:"탄소세", cat:11, sentence:"Some governments have introduced a ___ to discourage fossil fuel use.", phrase:true},
+  {id:168, word:"eco-tourism", pos:"명", meaning:"생태관광", cat:11, sentence:"___ can generate income while protecting natural habitats."},
+
+  {id:169, word:"curriculum", pos:"명", meaning:"교육과정", cat:12, sentence:"Schools are revising their ___ to include more digital skills."},
+  {id:170, word:"pedagogy", pos:"명", meaning:"교수법", cat:12, sentence:"Modern ___ emphasizes student-centered learning over rote memorization."},
+  {id:171, word:"literacy", pos:"명", meaning:"읽고 쓰는 능력, 문해력", cat:12, sentence:"Improving ___ rates remains a top priority in developing countries."},
+  {id:172, word:"numeracy", pos:"명", meaning:"수리력", cat:12, sentence:"Basic ___ skills are essential for everyday financial decisions."},
+  {id:173, word:"tuition", pos:"명", meaning:"수업료, 학비", cat:12, sentence:"Rising ___ fees have made university less accessible to low-income students."},
+  {id:174, word:"scholarship", pos:"명", meaning:"장학금", cat:12, sentence:"She was awarded a ___ to study abroad."},
+  {id:175, word:"enrollment", pos:"명", meaning:"등록, 입학", cat:12, sentence:"___ in online courses has grown rapidly in recent years."},
+  {id:176, word:"vocational", pos:"형", meaning:"직업의, 직업 교육의", cat:12, sentence:"___ training equips students with practical skills for the workplace."},
+  {id:177, word:"accreditation", pos:"명", meaning:"인가, 인증", cat:12, sentence:"The institution recently received international ___."},
+  {id:178, word:"matriculate", pos:"동", meaning:"입학하다", cat:12, sentence:"Only a small percentage of applicants ___ into the program each year."},
+  {id:179, word:"undergraduate", pos:"명/형", meaning:"학부생(의)", cat:12, sentence:"Most ___ programs take three to four years to complete."},
+  {id:180, word:"postgraduate", pos:"명/형", meaning:"대학원(생)의", cat:12, sentence:"She is pursuing a ___ degree in public policy."},
+  {id:181, word:"dropout", pos:"명", meaning:"중퇴자", cat:12, sentence:"___ rates have declined thanks to targeted support programs."},
+  {id:182, word:"syllabus", pos:"명", meaning:"강의 계획서", cat:12, sentence:"The professor distributed the ___ on the first day of class."},
+  {id:183, word:"rote learning", pos:"명", meaning:"암기식 학습", cat:12, sentence:"Critics argue that ___ discourages creative thinking.", phrase:true},
+  {id:184, word:"extracurricular", pos:"형", meaning:"과외 활동의", cat:12, sentence:"___ activities help students develop teamwork and leadership skills."},
+  {id:185, word:"mentor", pos:"명/동", meaning:"멘토, 지도하다", cat:12, sentence:"A good ___ can have a lasting influence on a student's career."},
+  {id:186, word:"plagiarism", pos:"명", meaning:"표절", cat:12, sentence:"Universities have strict policies against ___."},
+  {id:187, word:"credential", pos:"명", meaning:"자격, 자격증명", cat:12, sentence:"Employers increasingly value practical skills over formal ___s."},
+  {id:188, word:"aptitude", pos:"명", meaning:"적성", cat:12, sentence:"The test is designed to measure a student's ___ for mathematics."},
+  {id:189, word:"pedagogical", pos:"형", meaning:"교육학의", cat:12, sentence:"The new textbook takes a more ___ approach to grammar."},
+  {id:190, word:"disseminate", pos:"동", meaning:"(지식 등을) 전파하다, 보급하다", cat:12, sentence:"Universities play a key role in ___ing new research findings."},
+  {id:191, word:"underprivileged", pos:"형", meaning:"혜택을 받지 못하는", cat:12, sentence:"The scholarship targets ___ students who show academic promise."},
+  {id:192, word:"tutor", pos:"명/동", meaning:"개인 교습을 하다, 과외교사", cat:12, sentence:"Many parents hire private ___s to help with exam preparation."},
+  {id:193, word:"remedial", pos:"형", meaning:"보충의, 교정의", cat:12, sentence:"___ classes are offered to students who fall behind."},
+  {id:194, word:"standardized test", pos:"명", meaning:"표준화 시험", cat:12, sentence:"Critics argue that ___s fail to capture creativity.", phrase:true},
+  {id:195, word:"gifted", pos:"형", meaning:"영재의, 재능있는", cat:12, sentence:"___ students often need a more challenging curriculum."},
+  {id:196, word:"holistic", pos:"형", meaning:"전인적인, 총체적인", cat:12, sentence:"A ___ approach to education considers emotional as well as academic growth."},
+  {id:197, word:"proficiency", pos:"명", meaning:"숙달, 능숙", cat:12, sentence:"Language ___ is often assessed through both written and oral tests."},
+  {id:198, word:"comprehension", pos:"명", meaning:"이해력", cat:12, sentence:"Reading ___ is a fundamental skill taught in early education."},
+  {id:199, word:"disparity", pos:"명", meaning:"격차", cat:12, sentence:"There is a significant ___ in educational outcomes between urban and rural areas."},
+  {id:200, word:"underfunded", pos:"형", meaning:"자금이 부족한", cat:12, sentence:"Many public schools remain chronically ___."},
+  {id:201, word:"e-learning", pos:"명", meaning:"온라인 학습, 이러닝", cat:12, sentence:"___ platforms have made education more accessible worldwide."},
+  {id:202, word:"lifelong learning", pos:"명", meaning:"평생 학습", cat:12, sentence:"___ has become essential in a rapidly changing job market.", phrase:true},
+  {id:203, word:"mandatory", pos:"형", meaning:"의무적인", cat:12, sentence:"Attendance at these seminars is ___ for all first-year students."},
+  {id:204, word:"elective", pos:"명/형", meaning:"선택 과목(의)", cat:12, sentence:"Students can choose from a range of ___ courses."},
+  {id:205, word:"academia", pos:"명", meaning:"학계", cat:12, sentence:"She left industry to pursue a career in ___."},
+  {id:206, word:"peer-reviewed", pos:"형", meaning:"동료 심사를 거친", cat:12, sentence:"The findings were published in a ___ journal."},
+  {id:207, word:"cram", pos:"동", meaning:"벼락치기로 공부하다", cat:12, sentence:"Many students ___ the night before an exam rather than study steadily."},
+  {id:208, word:"disengaged", pos:"형", meaning:"(수업 등에) 흥미를 잃은", cat:12, sentence:"___ students are more likely to drop out of school."},
+  {id:209, word:"underachieve", pos:"동", meaning:"실력 발휘를 못하다, 저조한 성적을 내다", cat:12, sentence:"Bright students sometimes ___ due to a lack of motivation."},
+  {id:210, word:"individualized", pos:"형", meaning:"개별화된", cat:12, sentence:"___ instruction allows teachers to address each student's specific needs."},
+  {id:211, word:"formative assessment", pos:"명", meaning:"형성평가", cat:12, sentence:"___ helps teachers adjust their teaching throughout the term.", phrase:true},
+  {id:212, word:"summative assessment", pos:"명", meaning:"총괄평가", cat:12, sentence:"Final exams are a common form of ___.", phrase:true},
+  {id:213, word:"transcript", pos:"명", meaning:"성적 증명서", cat:12, sentence:"Applicants must submit an official academic ___."},
+  {id:214, word:"faculty", pos:"명", meaning:"교수진", cat:12, sentence:"The university's ___ includes several award-winning researchers."},
+  {id:215, word:"alumni", pos:"명", meaning:"동문, 졸업생들", cat:12, sentence:"The event was attended by hundreds of ___."},
+  {id:216, word:"underpin", pos:"동", meaning:"뒷받침하다, 근본이 되다", cat:12, sentence:"Critical thinking skills ___ success in almost every academic subject."},
+  {id:217, word:"rigor", pos:"명", meaning:"엄격함, 엄밀함", cat:12, sentence:"Maintaining academic ___ is essential to preserving a degree's value."},
+  {id:218, word:"attainment", pos:"명", meaning:"성취, 달성", cat:12, sentence:"Educational ___ has risen steadily over the past two generations."},
+  {id:219, word:"disadvantaged", pos:"형", meaning:"불우한, 혜택받지 못한", cat:12, sentence:"Programs aim to close the gap for ___ children."},
+  {id:220, word:"instructive", pos:"형", meaning:"유익한, 교훈적인", cat:12, sentence:"The lecture was both engaging and highly ___."},
+  {id:221, word:"self-directed", pos:"형", meaning:"자기주도적인", cat:12, sentence:"___ learning encourages students to take responsibility for their own progress."},
+  {id:222, word:"benchmark", pos:"명", meaning:"기준, 표준", cat:12, sentence:"National test scores serve as a ___ for comparing schools."},
+  {id:223, word:"immersive", pos:"형", meaning:"몰입형의", cat:12, sentence:"___ language programs can accelerate fluency."},
+  {id:224, word:"underrepresented", pos:"형", meaning:"대표성이 부족한, 소외된", cat:12, sentence:"The scholarship aims to support ___ groups in STEM fields."},
+
+  {id:225, word:"innovation", pos:"명", meaning:"혁신", cat:13, sentence:"Technological ___ has transformed the way people work and communicate."},
+  {id:226, word:"automation", pos:"명", meaning:"자동화", cat:13, sentence:"___ has replaced many repetitive jobs in manufacturing."},
+  {id:227, word:"artificial intelligence", pos:"명", meaning:"인공지능", cat:13, sentence:"___ is increasingly used to diagnose diseases more accurately.", phrase:true},
+  {id:228, word:"algorithm", pos:"명", meaning:"알고리즘", cat:13, sentence:"Social media platforms use an ___ to decide what content users see."},
+  {id:229, word:"connectivity", pos:"명", meaning:"연결성", cat:13, sentence:"Improved internet ___ has boosted remote work opportunities in rural areas."},
+  {id:230, word:"obsolete", pos:"형", meaning:"쓸모없게 된, 구식의", cat:13, sentence:"Many physical skills have become ___ due to advances in technology."},
+  {id:231, word:"disrupt", pos:"동", meaning:"(기존 질서를) 뒤흔들다, 방해하다", cat:13, sentence:"Ride-sharing apps have ___ed the traditional taxi industry."},
+  {id:232, word:"streamline", pos:"동", meaning:"간소화하다, 능률화하다", cat:13, sentence:"New software can ___ administrative tasks and save time."},
+  {id:233, word:"cybersecurity", pos:"명", meaning:"사이버 보안", cat:13, sentence:"Companies are investing heavily in ___ to prevent data breaches."},
+  {id:234, word:"surveillance", pos:"명", meaning:"감시", cat:13, sentence:"The use of facial recognition has raised concerns about mass ___."},
+  {id:235, word:"encrypt", pos:"동", meaning:"암호화하다", cat:13, sentence:"Sensitive data should always be ___ed before being transmitted online."},
+  {id:236, word:"breach", pos:"명/동", meaning:"(보안) 침해, 위반", cat:13, sentence:"The company suffered a serious data ___ last year."},
+  {id:237, word:"misinformation", pos:"명", meaning:"잘못된 정보", cat:13, sentence:"___ spreads rapidly on social media platforms."},
+  {id:238, word:"algorithm-driven", pos:"형", meaning:"알고리즘 기반의", cat:13, sentence:"___ recommendations often trap users in an echo chamber."},
+  {id:239, word:"echo chamber", pos:"명", meaning:"반향실 효과(같은 의견만 되풀이 접하는 환경)", cat:13, sentence:"Personalized news feeds can create an ___ that reinforces existing beliefs.", phrase:true},
+  {id:240, word:"virtual reality", pos:"명", meaning:"가상현실", cat:13, sentence:"___ is being used to train surgeons before real operations.", phrase:true},
+  {id:241, word:"streaming", pos:"명", meaning:"스트리밍", cat:13, sentence:"___ services have largely replaced traditional television viewing."},
+  {id:242, word:"bandwidth", pos:"명", meaning:"대역폭", cat:13, sentence:"High-definition video calls require substantial internet ___."},
+  {id:243, word:"digitize", pos:"동", meaning:"디지털화하다", cat:13, sentence:"Libraries are working to ___ their entire collection of manuscripts."},
+  {id:244, word:"digital divide", pos:"명", meaning:"디지털 격차", cat:13, sentence:"The ___ leaves many rural households without reliable internet access.", phrase:true},
+  {id:245, word:"proliferation", pos:"명", meaning:"확산, 급증", cat:13, sentence:"The ___ of smartphones has changed how people consume news."},
+  {id:246, word:"outdated", pos:"형", meaning:"구식의, 시대에 뒤떨어진", cat:13, sentence:"Relying on ___ equipment can put a company at a competitive disadvantage."},
+  {id:247, word:"interface", pos:"명", meaning:"인터페이스, 접점", cat:13, sentence:"A simple, intuitive ___ makes an app easier for elderly users."},
+  {id:248, word:"biometric", pos:"형", meaning:"생체 인식의", cat:13, sentence:"Many smartphones now use ___ data such as fingerprints for security."},
+  {id:249, word:"autonomous", pos:"형", meaning:"자율적인, 자율 주행의", cat:13, sentence:"___ vehicles are expected to reduce accidents caused by human error."},
+  {id:250, word:"malfunction", pos:"명/동", meaning:"고장, 오작동", cat:13, sentence:"A software ___ delayed hundreds of flights at the airport."},
+  {id:251, word:"glitch", pos:"명", meaning:"작은 결함, 오류", cat:13, sentence:"A minor ___ in the update caused the app to crash repeatedly."},
+  {id:252, word:"outsource", pos:"동", meaning:"외주를 주다", cat:13, sentence:"Many firms ___ their customer service to reduce costs."},
+  {id:253, word:"telecommute", pos:"동", meaning:"재택근무하다", cat:13, sentence:"Better connectivity has allowed more employees to ___ regularly."},
+  {id:254, word:"algorithm bias", pos:"명", meaning:"알고리즘 편향", cat:13, sentence:"Researchers have found evidence of ___ in some hiring software.", phrase:true},
+  {id:255, word:"data-driven", pos:"형", meaning:"데이터 기반의", cat:13, sentence:"Companies increasingly rely on ___ decisions rather than intuition."},
+  {id:256, word:"tech-savvy", pos:"형", meaning:"기술에 능숙한", cat:13, sentence:"Younger generations tend to be more ___ than their grandparents."},
+  {id:257, word:"deprecate", pos:"동", meaning:"(기능 등을) 단계적으로 폐지하다", cat:13, sentence:"The company plans to ___ the older version of its software next year."},
+  {id:258, word:"scalable", pos:"형", meaning:"확장 가능한", cat:13, sentence:"Cloud computing offers a ___ solution for growing businesses."},
+  {id:259, word:"redundant", pos:"형", meaning:"불필요한, 잉여의, (인력이) 정리해고된", cat:13, sentence:"Automation has made many manual jobs ___."},
+  {id:260, word:"prototype", pos:"명", meaning:"시제품, 원형", cat:13, sentence:"Engineers built a working ___ before mass production began."},
+  {id:261, word:"proprietary", pos:"형", meaning:"독점의, 소유주의", cat:13, sentence:"The device runs on ___ software that cannot be modified by users."},
+  {id:262, word:"decentralize", pos:"동", meaning:"분산시키다, 탈중앙화하다", cat:13, sentence:"Blockchain technology aims to ___ control over financial transactions."},
+  {id:263, word:"interoperability", pos:"명", meaning:"상호운용성", cat:13, sentence:"Poor ___ between systems can slow down hospital record-keeping."},
+  {id:264, word:"tech giant", pos:"명", meaning:"거대 기술 기업", cat:13, sentence:"A handful of ___s now dominate the global digital economy.", phrase:true},
+  {id:265, word:"monopoly", pos:"명", meaning:"독점", cat:13, sentence:"Regulators are concerned about the company's growing ___ over online advertising."},
+  {id:266, word:"addictive", pos:"형", meaning:"중독성의", cat:13, sentence:"Many apps are deliberately designed to be ___."},
+  {id:267, word:"screen time", pos:"명", meaning:"화면을 보는 시간", cat:13, sentence:"Doctors recommend limiting children's daily ___.", phrase:true},
+  {id:268, word:"desensitize", pos:"동", meaning:"둔감하게 만들다", cat:13, sentence:"Constant exposure to violent content can ___ young viewers."},
+  {id:269, word:"anonymity", pos:"명", meaning:"익명성", cat:13, sentence:"Online ___ can encourage people to post cruel or reckless comments."},
+  {id:270, word:"traceable", pos:"형", meaning:"추적 가능한", cat:13, sentence:"Nearly every online transaction is ___ back to an individual account."},
+  {id:271, word:"crowdsource", pos:"동", meaning:"대중의 참여로 얻다, 크라우드소싱하다", cat:13, sentence:"The company decided to ___ ideas for its next product design."},
+  {id:272, word:"open-source", pos:"형", meaning:"오픈소스의", cat:13, sentence:"___ software allows developers around the world to improve the code freely."},
+  {id:273, word:"cutting-edge", pos:"형", meaning:"최첨단의", cat:13, sentence:"The lab is developing ___ technology in gene editing."},
+  {id:274, word:"revolutionize", pos:"동", meaning:"혁명을 일으키다, 완전히 바꿔놓다", cat:13, sentence:"Smartphones have ___d the way people access information."},
+
+  {id:275, word:"obsessive", pos:"형", meaning:"집착하는, 강박적인", cat:30, sentence:"His ___ attention to detail meant the project took twice as long as expected."},
+  {id:276, word:"bespoke", pos:"형", meaning:"맞춤 제작된", cat:30, sentence:"The tailor specializes in ___ suits made to each customer's exact measurements."},
+  {id:277, word:"impulsive", pos:"형", meaning:"충동적인", cat:30, sentence:"Buying the car was an entirely ___ decision that she later regretted."},
+  {id:278, word:"repress", pos:"동", meaning:"억누르다", cat:30, sentence:"It can be unhealthy to constantly ___ negative emotions rather than express them."},
+  {id:279, word:"stubborn", pos:"형", meaning:"완고한", cat:30, sentence:"Despite the setbacks, he remained ___ in his belief that the plan would work."},
+  {id:280, word:"accolade", pos:"명", meaning:"찬사, 영예", cat:30, sentence:"The chef received numerous ___s for his innovative approach to cooking."},
+  {id:281, word:"millennia", pos:"명", meaning:"수천 년 (millennium의 복수)", cat:30, sentence:"Some geological formations took ___ to develop into their current shape."},
+  {id:282, word:"shoddy", pos:"형", meaning:"조잡한, 싸구려의", cat:30, sentence:"Customers complained about the ___ workmanship of the cheaply made furniture."},
+  {id:283, word:"artisan", pos:"명", meaning:"장인, 기능공", cat:30, sentence:"The market sells handmade goods produced by local ___s."},
+  {id:284, word:"thwart", pos:"동", meaning:"좌절시키다", cat:30, sentence:"Heavy rain ___ed their plans for an outdoor wedding."},
+  {id:285, word:"oblate", pos:"형", meaning:"편구형의, 극이 편평한", cat:30, sentence:"The Earth is not a perfect sphere but a slightly ___ shape."},
+  {id:286, word:"circumference", pos:"명", meaning:"둘레, 원주", cat:30, sentence:"The ___ of the track measures exactly four hundred meters."},
+  {id:287, word:"abortive", pos:"형", meaning:"실패로 끝난, 헛된", cat:30, sentence:"The company's ___ attempt to enter the market cost millions of dollars."},
+  {id:288, word:"seep", pos:"동", meaning:"스며 나오다", cat:30, sentence:"Water began to ___ through a crack in the basement wall."},
+  {id:289, word:"painstaking", pos:"형", meaning:"공들인, 힘든", cat:30, sentence:"Restoring the old painting required ___ effort over several months."},
+  {id:290, word:"palpable", pos:"형", meaning:"뚜렷이 느껴지는, 명백한", cat:30, sentence:"There was a ___ sense of relief in the room once the results were announced."},
+  {id:291, word:"obliterate", pos:"동", meaning:"완전히 없애다, 지우다", cat:30, sentence:"The flood ___d entire neighborhoods along the riverbank."},
+  {id:292, word:"intersperse", pos:"동", meaning:"군데군데 배치하다, 산재시키다", cat:30, sentence:"The lecture was ___d with short video clips to keep students engaged."},
+  {id:293, word:"interlude", pos:"명", meaning:"막간, 중간 휴식", cat:30, sentence:"A brief musical ___ separated the two acts of the play."},
+  {id:294, word:"kindred spirit", pos:"명", meaning:"마음이 통하는 사람", cat:30, sentence:"She found a ___ in her new colleague, who shared her passion for hiking.", phrase:true},
+  {id:295, word:"render", pos:"동", meaning:"(어떤 상태로) 만들다", cat:30, sentence:"The power outage ___ed the entire hospital unable to perform surgery."},
+  {id:296, word:"unflinching", pos:"형", meaning:"위축되지 않는, 단호한", cat:30, sentence:"The journalist was praised for her ___ commitment to reporting the truth."},
+  {id:297, word:"monstrous", pos:"형", meaning:"거대한, 엄청난", cat:30, sentence:"The company built a ___ new headquarters on the edge of the city."},
+  {id:298, word:"lament", pos:"명/동", meaning:"탄식(하다), 애도(하다)", cat:30, sentence:"Historians often ___ the loss of ancient manuscripts destroyed by fire."},
+  {id:299, word:"embark on", pos:"동", meaning:"착수하다, 시작하다", cat:30, sentence:"The young scientist decided to ___ a career in renewable energy research.", phrase:true},
+  {id:300, word:"odyssey", pos:"명", meaning:"긴 여정, 모험", cat:30, sentence:"Her journey across three continents became a personal ___ of self-discovery."},
+  {id:301, word:"serendipitously", pos:"부", meaning:"우연히 (좋은 일이) 일어나서", cat:30, sentence:"The two researchers ___ met at a conference and later became close collaborators."},
+  {id:302, word:"premises", pos:"명", meaning:"부지, 구내", cat:30, sentence:"Visitors must sign in before entering the company's ___."},
+  {id:303, word:"albeit", pos:"접속사", meaning:"비록 ~이지만", cat:30, sentence:"The plan succeeded, ___ more slowly than anyone had anticipated."},
+  {id:304, word:"venture", pos:"명", meaning:"사업, 모험적 시도", cat:30, sentence:"The new business ___ required a significant amount of upfront investment."},
+  {id:305, word:"blueprint", pos:"명", meaning:"청사진, 계획", cat:30, sentence:"The report offers a ___ for reducing traffic congestion in major cities."},
+  {id:306, word:"stir up", pos:"동", meaning:"불러일으키다, 자극하다", cat:30, sentence:"The documentary managed to ___ public debate about factory farming.", phrase:true},
+  {id:307, word:"craftsmanship", pos:"명", meaning:"장인정신, 손기술", cat:30, sentence:"The cabinet's fine ___ reflects decades of woodworking experience."},
+  {id:308, word:"moribund", pos:"형", meaning:"다 죽어가는, 소멸해가는", cat:30, sentence:"Critics described the once-thriving industry as increasingly ___."},
+  {id:309, word:"spherical", pos:"형", meaning:"구형의", cat:30, sentence:"Most planets in the solar system are roughly ___ in shape."}
 ];
 
 /* ---------------- App state ---------------- */
@@ -554,8 +782,9 @@ function renderCategoryGrid(){
     const best = localStorage.getItem("ielts100_best_cat_"+catId);
     const btn = document.createElement("button");
     btn.className = "cat-btn";
+    const quizLen = Math.min(count, 15);
     const badge = appMode === "quiz"
-      ? `${count}문제${best ? " · 최고 "+best+"점" : ""}`
+      ? `${quizLen}문제${best ? " · 최고 "+best+"점" : ""}`
       : `${count}개 단어 보기`;
     btn.innerHTML = `<div class="num">CATEGORY ${catId}</div>
       <div class="name">${CATEGORIES[catId]}</div>
@@ -576,11 +805,11 @@ function updateModeUI(){
     ? "카테고리를 골라서 풀어보세요"
     : "카테고리를 골라서 뜻과 예문을 살펴보세요";
   document.getElementById("selectSub").textContent = appMode === "quiz"
-    ? "각 카테고리 10문제 · 빈칸/객관식 랜덤 출제"
+    ? "카테고리당 랜덤 15문제 · 빈칸/객관식 랜덤 출제"
     : "퀴즈 없이 단어 뜻과 예문만 훑어보는 모드예요";
   document.getElementById("allBtn").textContent = appMode === "quiz"
-    ? "전체 100문제 도전하기 💪"
-    : "전체 100개 단어 보기 📖";
+    ? "전체 어휘 랜덤 30문제 도전하기 💪"
+    : "전체 단어 목록 보기 📖";
   renderCategoryGrid();
 }
 
@@ -589,7 +818,7 @@ document.getElementById("modeStudyBtn").onclick = () => { appMode = "study"; upd
 
 document.getElementById("allBtn").onclick = () => {
   if(appMode === "quiz") startQuiz(WORDS, "all");
-  else startStudy(WORDS, "전체 100개 단어");
+  else startStudy(WORDS, `전체 ${WORDS.length}개 단어`);
 };
 
 /* ---------------- Study (뜻 보기) screen ---------------- */
@@ -618,9 +847,14 @@ document.getElementById("studyBackBtn").onclick = () => {
 
 /* ---------------- Quiz logic ---------------- */
 let currentCatKey = null;
+let currentCategoryWords = [];
+const CATEGORY_QUIZ_LEN = 15;
+const ALL_QUIZ_LEN = 30;
 
 function startQuiz(words, catKey){
-  quizWords = shuffle(words);
+  currentCategoryWords = words;
+  const cap = catKey === "all" ? ALL_QUIZ_LEN : CATEGORY_QUIZ_LEN;
+  quizWords = shuffle(words).slice(0, Math.min(cap, words.length));
   currentIndex = 0;
   score = 0;
   wrongWords = [];
@@ -805,7 +1039,7 @@ document.getElementById("letterBtn").onclick = () => {
 };
 
 document.getElementById("retryBtn").onclick = () => {
-  startQuiz(quizWords, currentCatKey);
+  startQuiz(currentCategoryWords, currentCatKey);
 };
 document.getElementById("backBtn").onclick = () => {
   renderCategoryGrid();
